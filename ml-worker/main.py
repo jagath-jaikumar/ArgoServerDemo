@@ -8,6 +8,9 @@ import requests
 from PIL import Image
 
 logging.basicConfig(level=logging.INFO)
+
+ITERATIONS = 10
+
 model_path = "model.onnx"
 classes_path = "classes.json"
 
@@ -59,7 +62,7 @@ def predict(images):
 
 
 def main():
-    for _ in range(30):
+    for _ in range(ITERATIONS):
         images = get_images(limit=30)
         predict(images)
         logging.info(_)
