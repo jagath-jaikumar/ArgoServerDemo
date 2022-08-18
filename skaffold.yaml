@@ -1,0 +1,33 @@
+apiVersion: skaffold/v2beta24
+kind: Config
+metadata:
+  name: argo-test
+build:
+  local:
+      push: true
+  tagPolicy:
+    sha256: {}
+  artifacts:
+    - image: argo-test-ml-worker
+      context: ml-worker
+      docker:
+        dockerfile: Dockerfile
+        cacheFrom:
+        - localhost:5000/argo-test-ml-worker
+    - image: argo-test-ml-server
+      context: ml-server
+      docker:
+        dockerfile: Dockerfile
+        cacheFrom:
+        - localhost:5000/argo-test-ml-server
+deploy:
+  kubectl:
+    manifests:
+    - ml-server/deploy.yaml
+
+
+portForward:
+  - resourceType: service
+    resourceName: ml-server
+    port: 6999
+    localPort: 6999

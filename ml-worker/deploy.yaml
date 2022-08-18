@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ml-worker
+  namespace: test
+spec:
+  selector:
+    matchLabels:
+      app: ml-worker
+  template:
+    metadata:
+      labels:
+        app: ml-worker
+    spec:
+      containers:
+      - name: ml-worker
+        image: localhost:5000/argo-test-ml-worker:latest
+        imagePullPolicy: Always

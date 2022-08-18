@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ml-server
+  namespace: test
+spec:
+  selector:
+    app: ml-server
+  ports:
+  - protocol: "TCP"
+    port: 6999
+    targetPort: 6999
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ml-server
+  namespace: test
+spec:
+  selector:
+    matchLabels:
+      app: ml-server
+  template:
+    metadata:
+      labels:
+        app: ml-server
+    spec:
+      containers:
+      - name: ml-worker
+        image: localhost:5000/argo-test-ml-server:latest
+        imagePullPolicy: Always

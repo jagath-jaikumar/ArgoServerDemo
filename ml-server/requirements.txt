@@ -1,0 +1,3 @@
+uvicorn
+fastapi
+couler @ git+https://github.com/couler-proj/couler@9347e9bf4dac6089734840ff064b9103e895b085
