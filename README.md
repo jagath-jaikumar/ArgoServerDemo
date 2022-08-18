@@ -29,11 +29,13 @@ python multi_runner.py
 
 
 
-## Useful Scripts
+## Useful Commands
 
+```
 docker build -t localhost:5000/argo-test-ml-worker:latest -f ml-worker/Dockerfile ml-worker
 docker push localhost:5000/argo-test-ml-worker:latest
 docker run localhost:5000/argo-test-ml-worker:latest
 
 
 kubectl -n argo port-forward deployment/argo-server 2746:2746
+```
