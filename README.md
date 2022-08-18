@@ -15,7 +15,10 @@ skaffold dev -d localhost:5000 # blocking
 kubectl -n argo port-forward deployment/argo-server 2746:2746 # blocking
 
 # Test Single: 
-python runner.py
+python single_runner.py
+
+# Test Multiple:
+python multi_runner.py
 ```
 
 
