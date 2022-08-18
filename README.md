@@ -4,6 +4,10 @@
 
 Docker Desktop Kubernetes, Skaffold, and Kubectl installed on MacOS
 
+- https://docs.docker.com/desktop/install/mac-install/
+- https://skaffold.dev/docs/install/
+- https://kubernetes.io/docs/tasks/tools/
+
 ```
 kubectl create ns argo
 kubectl apply -n argo -f https://raw.githubusercontent.com/argoproj/argo-workflows/master/manifests/quick-start-postgres.yaml
