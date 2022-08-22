@@ -63,7 +63,7 @@ def predict(images):
 
 def main():
     for _ in range(ITERATIONS):
-        images = get_images(limit=30)
+        images = get_images(limit=10)
         predict(images)
         logging.info(_)
 
